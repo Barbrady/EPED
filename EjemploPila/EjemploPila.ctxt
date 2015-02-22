@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=EjemploPila()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Ejemplo\n
+comment1.params=dimension
+comment1.target=EjemploPila(int)
+comment2.params=numero
+comment2.target=void\ Introducir(int)
+comment3.params=
+comment3.target=void\ Sacar()
+numComments=4
