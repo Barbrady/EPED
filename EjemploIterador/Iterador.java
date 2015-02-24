@@ -1,5 +1,5 @@
-  
-import weiss.math;
+
+ 
 /**
  * Write a description of class Iterador here.
  * 
