@@ -1,23 +1,22 @@
-import weiss.util.*;
- 
+
 /**
- * Write a description of class Iterador here.
+ * Write a description of class Ejemplo1 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Iterador
+public class Ejemplo1
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private EjemploPila pila;
 
     /**
-     * Constructor for objects of class Iterador
+     * Constructor for objects of class Ejemplo1
      */
-    public Iterador()
+    public Ejemplo1()
     {
         // initialise instance variables
-        x = 0;
+        pila = new EjemploPila(10);
     }
 
     /**
@@ -29,7 +28,8 @@ public class Iterador
     public int sampleMethod(int y)
     {
         // put your code here
-        return x + y;
-        
+        pila.Introducir(5);
+        pila.Sacar();
+        return 0;
     }
 }
