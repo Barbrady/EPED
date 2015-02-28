@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=e1\ e2
+comment0.target=int\ compare(java.lang.Object,\ java.lang.Object)
+comment1.params=e1\ e2
+comment1.target=boolean\ isLess(java.lang.Object,\ java.lang.Object)
+comment2.params=e1\ e2
+comment2.target=boolean\ isEqual(java.lang.Object,\ java.lang.Object)
+comment3.params=e1\ e2
+comment3.target=boolean\ isGreater(java.lang.Object,\ java.lang.Object)
+numComments=4
