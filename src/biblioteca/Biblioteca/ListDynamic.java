@@ -83,13 +83,23 @@ public class ListDynamic<T> implements ListIF<T>
     @Override
     public boolean contains (T element)
     {
-        return true;
+       if(isEmpty()) return false;
+       return first.equals (element) || tail.contains (element);
     }
     
     @Override
     public ListIF<T> sort (ComparatorIF<T> comparator)
     {
-        return new ListDynamic<T> ();
+        if (isEmpty()) return this;
+        else return ((ListDynamic<T>) tail.sort (comparator)).sortInsert (first, comparator);
+    }
+    
+    private ListIF<T> sortInsert (T element, ComparatorIF<T> comparator)
+    {
+        if (isEmpty()) return this.insert (element);
+        else if(comparator.isLess (element, first))
+            return this.insert (element);
+            else return ((ListDynamic<T>) tail).sortInsert (element, comparator).insert (first);
     }
     
     
