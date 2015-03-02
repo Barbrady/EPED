@@ -16,8 +16,8 @@ public class ListStatic<T> implements ListIF<T>
    public ListStatic (int capacity)
    {
        this.capacity = capacity;
-       thir.first = capacity;
-       this.elements = new Objet[capacity];
+       this.first = capacity;
+       this.elements = new Object[capacity];
    }
     
    public ListStatic (ListIF<T> list)
@@ -26,7 +26,7 @@ public class ListStatic<T> implements ListIF<T>
        {
            this.capacity = list.getLength ();
            this.first    = this.capacity;
-           this.elements = new Objet[this.capacity];
+           this.elements = new Object[this.capacity];
            
            ListIF<T> aList = list;
            for (int i = capacity - list.getLength(); i < capacity; i++)  {
@@ -95,5 +95,61 @@ public class ListStatic<T> implements ListIF<T>
        return new ListIterator<T> (handler);
    }
    
+   @Override
+   public boolean contains (T element)
+   {
+       IteratorIF<T> listIt = this.getIterator ();
+       boolean found = false;
+       while (!found && listIt.hasNext())
+       {
+           T anElement = listIt.getNext();
+           found = anElement.equals (element);
+       }
+       return found;
+   }
    
+   @Override
+   public int hashCode ()
+   {
+       return 31*31 * ((elements == null) ? 0 : elements.hashCode ()) + 31 * capacity + first;
+   }
+   
+   @SuppressWarnings("uncheked")
+   @Override
+   public boolean equals (Object o)
+   {
+       if ( o == this) return true;
+       if ( o == null) return false;
+       if ( o.getClass () != this.getClass ()) return false;
+       else {
+           ListStatic<T> l = (ListStatic<T>) o;
+           return l.elements.equals (elements) && l.capacity == capacity && l.first == first;
+       }
+    }
+   
+   @Override
+   public String toString ()
+   {
+       StringBuffer buff = new StringBuffer ();
+       buff.append("ListStatic -[");
+       
+       IteratorIF<T> listIt = getIterator ();
+       while (listIt.hasNext ())
+       {
+           T element = listIt.getNext ();
+           buff.append (element);
+           if (listIt.hasNext ())
+            buff.append(",");
+       }
+        
+       buff.append("]");
+       return buff.toString ();
+   }
+   
+   @Override
+   public ListIF<T> sort (ComparatorIF<T> comparator)
+   {
+       if(getLength () <= 1) return this;
+       else {
+           
 }
