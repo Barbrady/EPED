@@ -149,7 +149,7 @@ public class ListStatic<T> implements ListIF<T>
    @Override
    public ListIF<T> sort (ComparatorIF<T> comparator)
    {
-       if(getLength () <= 1) return this;
-       else {
+       return null;
+   }
            
 }
