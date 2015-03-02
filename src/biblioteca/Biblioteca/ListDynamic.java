@@ -102,5 +102,41 @@ public class ListDynamic<T> implements ListIF<T>
             else return ((ListDynamic<T>) tail).sortInsert (element, comparator).insert (first);
     }
     
+    //@Override
+    public int hashcode ()
+    {
+        return 31 * ((first == null) ? 0 : first.hashCode ()) + ((tail == null) ? 0 : tail.hashCode ());
+    }
     
+    @Override
+    public boolean equals (Object o)
+    {
+        if (o == this) return true;
+        if (o == null) return false;
+        
+        if(!(o instanceof ListDynamic)) return false;
+        else {
+            ListDynamic<T> l = (ListDynamic<T>) o;
+            return l.first.equals (first) && l.tail.equals (tail);
+        }
+    }
+    
+    @Override
+    public String toString ()
+    {
+        StringBuffer buff = new StringBuffer ();
+        buff.append("ListDynamic -[");
+        
+        IteratorIF<T> listIt = getIterator ();
+        while (listIt.hasNext ())
+        {
+            T element = listIt.getNext ();
+            buff.append (element);
+            if (listIt.hasNext ())
+                buff.append(",");
+        }
+        
+        buff.append("]");
+        return buff.toString ();
+    }
 }

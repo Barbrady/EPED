@@ -37,7 +37,11 @@ public class Ejemplo
             p = itr.getNext();
             p.getDatos();
         }
-        personas.contains(Aitor);
+        if(!personas.contains(Aitor)) 
+            System.out.println("Aitor es una persona.");
+            else
+            System.out.println("No es un animal");
+            
     }
   
 }
