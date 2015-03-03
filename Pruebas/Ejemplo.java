@@ -25,7 +25,7 @@ public class Ejemplo
         personas.insert(Noelia);
         Maya = new Persona("Maya",2);
         personas.insert(Maya);
-        animal = new Animal("Perro","Cis");
+    
         
     }
     
@@ -35,12 +35,9 @@ public class Ejemplo
         IteratorIF<Persona> itr = personas.getIterator();
         while(itr.hasNext()){
             p = itr.getNext();
-            p.getDatos();
+            //p.getDatos();
+            System.out.println("" + p.toString());
         }
-        if(!personas.contains(Aitor)) 
-            System.out.println("Aitor es una persona.");
-            else
-            System.out.println("No es un animal");
             
     }
   

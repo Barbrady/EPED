@@ -11,4 +11,6 @@ comment3.params=edad
 comment3.target=void\ setEdad(int)
 comment4.params=
 comment4.target=void\ getDatos()
-numComments=5
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

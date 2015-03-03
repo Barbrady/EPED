@@ -1,4 +1,4 @@
-package Biblioteca;
+package Biblioteca.Listas;
 
 /**
  * Abstract class ComparatorBase - write a description of the class here

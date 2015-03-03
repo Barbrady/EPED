@@ -53,4 +53,15 @@ public class Persona
         System.out.println("Edad: "+ edad);
         System.out.println("Referencia: "+ ref);
     }
+    
+    public String toString()
+    {
+        StringBuffer buff = new StringBuffer();
+        buff.append("[Nombre: ");
+        buff.append(nombre);
+        buff.append(", edad:");
+        buff.append(edad);
+        buff.append("]");
+        return buff.toString();
+    }
 }
