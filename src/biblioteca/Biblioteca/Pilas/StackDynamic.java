@@ -1,5 +1,6 @@
 package Biblioteca.Pilas;
 import Biblioteca.Listas.ListIF;
+import Biblioteca.Listas.IteratorIF;
 
 /**
  * Write a description of class StackDynamic here.
@@ -34,7 +35,7 @@ public class StackDynamic <T> implements StackIF <T>
     {
         this ();
         if (list != null)
-            if (!list.empty ())
+            if (!list.isEmpty())
             {
                 element = list.getFirst();
                 next = new StackDynamic<T> (list.getTail());
@@ -55,10 +56,85 @@ public class StackDynamic <T> implements StackIF <T>
             StackDynamic<T> stack = new StackDynamic<T> ();
             stack.element = this.element;
             stack.next = this.next;
-            this.elemnt = element;
+            this.element = element;
             this.next = stack;
         }
+        return this;
     }
+    
+    @Override
+    public StackIF<T> pop ()
+    {
+        if (!isEmpty ())
+        {
+            element = next.element;
+            next = next.next;
+        }
+        return this;
+    }
+    
+    @Override
+    public boolean isEmpty()
+    {
+        return element == null && next == null;
+    }
+    
+    @Override
+    public boolean isFull()
+    {
+        return false;
+    }
+    
+    @Override
+    public int getLength ()
+    {
+        if (isEmpty ()) return 0;
+        return 1 + next.getLength();
+    }
+    
+    @Override
+    public boolean contains (T element)
+    {
+        if (isEmpty ()) return false;
+        else return this.element.equals (element) || next.contains (element);
+    }
+    
+    @Override
+    public IteratorIF<T> getIterator ()
+    {
+        StackIF<T> handler = new StackDynamic<T> (this);
+        return new StackIterator<T> (handler);
+    }
+    
+    @Override
+    public int hashCode ()
+    {
+        return 31 * ((element == null) ? 0 : element.hashCode ()) + ((next == null) ? 0 : next.hashCode ());
+    }
+    
+    @SuppressWarnings("unchecked")
+    @Override
+    public boolean equals (Object o)
+    {
+        if (o == this) return true;
+        if (o == null) return false;
+        
+        if(!(o instanceof StackIF)) return false;
+        else{
+            StackDynamic<T> s = (StackDynamic<T>) o;
+            return s.element.equals (element) && s.next.equals (next);
+        }
+    }
+    
+    @Override
+    public String toString ()
+    {
+        return null;
+    }
+    
+    
+    
+}
      
    
-}
+
