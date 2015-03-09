@@ -1,8 +1,10 @@
 #BlueJ class context
-comment0.params=
-comment0.target=java.lang.Object\ getNext()
+comment0.params=handler
+comment0.target=ListIterator(ListIF)
 comment1.params=
-comment1.target=boolean\ hasNext()
+comment1.target=java.lang.Object\ getNext()
 comment2.params=
-comment2.target=void\ reset()
-numComments=3
+comment2.target=boolean\ hasNext()
+comment3.params=
+comment3.target=void\ reset()
+numComments=4

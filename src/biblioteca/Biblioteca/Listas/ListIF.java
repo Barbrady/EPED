@@ -1,4 +1,5 @@
 package Biblioteca.Listas;
+import Biblioteca.Iterator.*;
 
 public interface ListIF<T>
 {

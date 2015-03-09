@@ -28,5 +28,5 @@ comment7.target=boolean\ isFull()
 comment8.params=
 comment8.target=int\ getLength()
 comment9.params=
-comment9.target=IteratorIF\ getIterator()
+comment9.target=Biblioteca.Iterator.IteratorIF\ getIterator()
 numComments=15

@@ -1,20 +1,19 @@
-package Biblioteca.Pilas;
+package Biblioteca.Colas;
 import Biblioteca.Iterator.*;
 
 /**
- * Write a description of interface StackIF here.
+ * Write a description of interface QueueIF here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-
-public interface StackIF<T>
+public interface QueueIF<T>
 {
-    public T getTop ();
+    public T getFirst ();
     
-    public StackIF<T> push (T element);
+    public QueueIF<T> add (T element);
     
-    public StackIF<T> pop ();
+    public QueueIF<T> remove ();
     
     public boolean isEmpty ();
     
@@ -24,5 +23,6 @@ public interface StackIF<T>
     
     public boolean contains (T element);
     
-    public IteratorIF<T> getIterator();
+    public IteratorIF<T> getIterator ();
+    
 }

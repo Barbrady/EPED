@@ -1,5 +1,5 @@
 package Biblioteca.Pilas;
-import Biblioteca.Listas.IteratorIF;
+import Biblioteca.Iterator.*;
 /**
  * Write a description of class StackIterator here.
  * 

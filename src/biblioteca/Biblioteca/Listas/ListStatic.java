@@ -1,5 +1,5 @@
 package Biblioteca.Listas;
-
+import Biblioteca.Iterator.*;
 
 /**
  * Write a description of class ListStatic here.

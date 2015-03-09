@@ -1,4 +1,4 @@
-package Biblioteca.Listas;
+package Biblioteca.Iterator;
 
 
 /**
@@ -7,7 +7,6 @@ package Biblioteca.Listas;
  * @author (your name) 
  * @version (a version number or a date)
  */
-
 public interface IteratorIF<T>
 {
     public T getNext ();

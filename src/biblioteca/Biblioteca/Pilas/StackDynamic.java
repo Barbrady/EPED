@@ -1,6 +1,6 @@
 package Biblioteca.Pilas;
-import Biblioteca.Listas.ListIF;
-import Biblioteca.Listas.IteratorIF;
+import Biblioteca.Iterator.*;
+import Biblioteca.Listas.*;
 
 /**
  * Write a description of class StackDynamic here.

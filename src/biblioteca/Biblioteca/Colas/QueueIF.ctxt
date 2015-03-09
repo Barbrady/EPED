@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.params=
-comment0.target=java.lang.Object\ getTop()
+comment0.target=java.lang.Object\ getFirst()
 comment1.params=element
-comment1.target=StackIF\ push(java.lang.Object)
+comment1.target=QueueIF\ add(java.lang.Object)
 comment2.params=
-comment2.target=StackIF\ pop()
+comment2.target=QueueIF\ remove()
 comment3.params=
 comment3.target=boolean\ isEmpty()
 comment4.params=
