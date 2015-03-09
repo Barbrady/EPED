@@ -91,7 +91,7 @@ public class StackStatic <T> implements StackIF<T>
     @Override
     public boolean isFull()
     {
-        return top == (capacity - !);
+        return top == (capacity - 1);
     }
     
     @Override
@@ -111,4 +111,32 @@ public class StackStatic <T> implements StackIF<T>
         }
         return found;
     }
+    
+    @Override
+    public IteratorIF<T> getIterator ()
+    {
+        StackIF<T> handler = new StackStatic<T> (this);
+        return new StackIterator<T> (handler);
+    }
+    
+    //FALTA IMPLEMENTAR
+    @Override
+    public int hashCode ()
+    {
+        return -1;
+    }
+    
+    @SuppressWarnings("unchecked")
+    @Override
+    public boolean equals (Object o)
+    {
+        return false;
+    }
+    
+    @Override
+    public String toString ()
+    {
+        return null;
+    }
+    
 }
