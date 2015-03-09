@@ -32,6 +32,29 @@ public class StackIterator <T> implements IteratorIF <T>
     }
     
     @Override
-    public void 
+    public void reset ()
+    {
+        handler = new StackDynamic<T> (restart);
+    }
+    
+    //FALTA DE IMPLEMENTAR
+    @Override
+    public int hashCode ()
+    {
+        return -1;
+    }
+    
+    @Override
+    public boolean equals (Object o)
+    {
+        return false;
+    }
+    
+    @Override
+    public String toString ()
+    {
+        return null;
+    }
+    
     
 }

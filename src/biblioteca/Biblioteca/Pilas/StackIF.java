@@ -8,7 +8,7 @@ import Biblioteca.Listas.IteratorIF;
  * @version (a version number or a date)
  */
 
-public interface StackIF <T>
+public interface StackIF<T>
 {
     public T getTop ();
     

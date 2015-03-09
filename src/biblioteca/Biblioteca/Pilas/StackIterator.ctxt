@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=handler
+comment0.target=StackIterator(StackIF)
+comment1.params=
+comment1.target=java.lang.Object\ getNext()
+comment2.params=
+comment2.target=boolean\ hasNext()
+comment3.params=
+comment3.target=void\ reset()
+comment4.params=
+comment4.target=int\ hashCode()
+comment5.params=o
+comment5.target=boolean\ equals(java.lang.Object)
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7
