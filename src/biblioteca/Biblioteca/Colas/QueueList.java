@@ -1,5 +1,6 @@
 package Biblioteca.Colas;
 import Biblioteca.Listas.*;
+import Biblioteca.Iterator.*;
 
 /**
  * Write a description of class QueueList here.
@@ -108,7 +109,7 @@ public class QueueList<T> implements QueueIF<T>
         else
         {
             QueueList<T> q = (QueueList<T>) o;
-            return q.first.equasl (first) && q.last.equasl (last);
+            return q.first.equals (first) && q.last.equals (last);
         }
     }
     
@@ -121,5 +122,13 @@ public class QueueList<T> implements QueueIF<T>
         IteratorIF<T> queueIt = getIterator ();
         while (queueIt.hasNext ())  {
             T element = queueIt.getNext ();
+            buff.append (element);
+            if (queueIt.hasNext ()) buff.append (", ");
+        }
+        buff.append("]");
+        return buff.toString ();
+    }
+    
+    
             
 }
