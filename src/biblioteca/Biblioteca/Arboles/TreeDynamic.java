@@ -132,7 +132,7 @@ public class TreeDynamic<T> implements TreeIF<T>
         return -1;
     }
     
-    @Override
+    //@Override
     public boolean equals ()
     {
         return false;

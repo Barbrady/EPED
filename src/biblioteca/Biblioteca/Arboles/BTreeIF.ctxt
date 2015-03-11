@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=
+comment0.target=java.lang.Object\ getRoot()
+comment1.params=
+comment1.target=BTreeIF\ getLeftChild()
+comment10.params=element
+comment10.target=boolean\ contains(java.lang.Object)
+comment11.params=traversalType
+comment11.target=Biblioteca.Iterator.IteratorIF\ getIterator(int)
+comment2.params=
+comment2.target=BTreeIF\ getRightChild()
+comment3.params=element
+comment3.target=void\ setRoot(java.lang.Object)
+comment4.params=tree
+comment4.target=void\ setLeftChild(BTreeIF)
+comment5.params=tree
+comment5.target=void\ setRightChild(BTreeIF)
+comment6.params=
+comment6.target=void\ removeLeftChild()
+comment7.params=
+comment7.target=void\ removeRightChild()
+comment8.params=
+comment8.target=boolean\ isLeaf()
+comment9.params=
+comment9.target=boolean\ isEmpty()
+numComments=12

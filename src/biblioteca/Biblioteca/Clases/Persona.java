@@ -1,4 +1,4 @@
-package Biblioteca;
+package Biblioteca.Clases;
 /**
  * Write a description of class Persona here.
  * 
