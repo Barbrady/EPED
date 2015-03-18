@@ -55,5 +55,25 @@ public class Ejemplo
         }
         return 0;
     }
-  
+    
+    public void comparaCaracteres()
+    {
+        ListDynamic<Caracter> l1 = new ListDynamic<Caracter>();
+        ListDynamic<Caracter> l2 = new ListDynamic<Caracter>();
+        Caracter c1 = new Caracter('a');
+        Caracter c2 = new Caracter('a');
+        l1.insert(c1);
+        l2.insert(c2);
+        if(compararListaCarac(l1,l2)) System.out.println("Son iguales.");
+        else System.out.println("Son diferentes.");
+        
+    }
+    
+    public boolean compararListaCarac(ListIF l1, ListIF l2)
+    {
+        if(l1.getFirst().equals(l2.getFirst()) || (l1.getFirst() == null && l2.getFirst() == null)){
+            return true && compararListaCarac(l1.getTail(),l2.getTail());
+        }
+        else return false;
+    }
 }
