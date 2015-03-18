@@ -1,4 +1,7 @@
-import Biblioteca.*;
+import Biblioteca.Listas.*;
+import Biblioteca.Clases.*;
+import Biblioteca.Iterator.*;
+
 /**
  * Write a description of class Ejemplo here.
  * 
@@ -8,7 +11,7 @@ import Biblioteca.*;
 public class Ejemplo
 {
     // instance variables - replace the example below with your own
-    private Persona Aitor, Noelia, Maya;
+    private Persona Aitor, Noelia, Maya, Mikel;
     private Animal animal;
     private ListDynamic<Persona> personas;
     private Persona p;
@@ -25,6 +28,8 @@ public class Ejemplo
         personas.insert(Noelia);
         Maya = new Persona("Maya",2);
         personas.insert(Maya);
+        Mikel = new Persona("Mikel",0);
+        personas.insert(Mikel);
     
         
     }
@@ -38,7 +43,17 @@ public class Ejemplo
             //p.getDatos();
             System.out.println("" + p.toString());
         }
+        System.out.println("El numero de objetos en lista es: "+ nElementos(personas));
             
+    }
+    
+    /* Devuelve el número de elementos de una lista */
+    public int nElementos (ListIF lista)
+    {
+        if(!lista.isEmpty())  {
+            return 1 + (nElementos(lista.getTail()));
+        }
+        return 0;
     }
   
 }
