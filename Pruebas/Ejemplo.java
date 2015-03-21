@@ -112,7 +112,7 @@ public class Ejemplo
         l2.insert(new Integer(2));
         l2.insert(new Integer(3));
         
-        if(subLista(l1,l2) ) {
+        if(subLista2(l1,l2) ) {
             System.out.println("Es sublista.");
         }
         else{
@@ -135,10 +135,19 @@ public class Ejemplo
        ListDynamic lista = new ListDynamic<> (l2);
        boolean match = false;
        while(l1.getLength() > l2.getLength())  {
-           
-
-           
-           
+           if(l1.getFirst().equals(l2.getFirst()))  {
+               l1 = l1.getTail();
+               l2 = l2.getTail();
+            }
+           else  {
+               l1 = l1.getTail();
+               l2 = lista;
+               match = false;
+            }
+            
+           if(l2.isEmpty())  {
+               return true;
+            }
         }
        return match;
     }
