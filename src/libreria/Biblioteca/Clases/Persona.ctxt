@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Persona()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Persona\n
+comment1.params=nombre\ edad
+comment1.target=Persona(java.lang.String,\ int)
+comment1.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\ \n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \n
+comment2.params=nombre
+comment2.target=void\ setNombre(java.lang.String)
+comment3.params=edad
+comment3.target=void\ setEdad(int)
+comment4.params=
+comment4.target=void\ getDatos()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

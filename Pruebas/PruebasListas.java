@@ -8,17 +8,17 @@ import Biblioteca.Iterator.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Ejemplo
+public class PruebasListas
 {
     // instance variables - replace the example below with your own
-    private Persona Aitor, Noelia, Maya, Mikel, Adrian;
+    private Persona Aitor, Noelia, Maya, Mikel, Adrian, Miguel;
     private Animal animal;
-    private ListDynamic<Persona> personas1, personas2;
+    private ListDynamic<Persona> personas1, personas2, personas3;
     private Persona p;
     /**
      * Constructor for objects of class Ejemplo
      */
-    public Ejemplo()
+    public PruebasListas()
     {
         personas1 = new ListDynamic<Persona> ();
         // initialise instance variables
@@ -32,10 +32,18 @@ public class Ejemplo
         personas1.insert(Mikel);
         
         Adrian = new Persona("Adrian",27);
+        Miguel = new Persona("Miguel",27);
         
-        personas2 = new ListDynamic<Persona> (personas1);
+        //personas2 = new ListDynamic<Persona> (personas1);
         
-        personas2.insert(Adrian);
+        //personas2.insert(Adrian);
+        //personas2.insert(Miguel);
+        //insertarPersonaUltima(personas1, Adrian);
+        //personas3 = new ListDynamic<Persona>();
+        //personas3 = ConcatenarListas(personas1, personas2);
+        //personas3 = new ListDynamic<Persona>();
+        //personas1 = (ListDynamic) invertirLista(personas1,personas3);
+        p = UltimoElemento(personas1);
     
         
     }
@@ -43,17 +51,22 @@ public class Ejemplo
     public void Informacion()
     {
         //Aitor.getDatos();
-        IteratorIF<Persona> itr = personas1.getIterator();
+        /**IteratorIF<Persona> itr = personas1.getIterator();
         while(itr.hasNext()){
             p = itr.getNext();
             //p.getDatos();
             System.out.println("" + p.toString());
         }
         System.out.println("El numero de objetos en lista es: "+ nElementos(personas1));
+         **/
+        Persona persona = ultimaPersona(personas1);
+        System.out.println("La ultima perona es:" + persona.toString());
             
     }
     
-    /* Devuelve el número de elementos de una lista */
+
+    
+    //LONGITUD Nº1
     public int nElementos (ListIF lista)
     {
         if(!lista.isEmpty())  {
@@ -62,6 +75,7 @@ public class Ejemplo
         return 0;
     }
     
+    //COMPARAR DOS LISTAS Nº2
     public void comparaCaracteres()
     {
         ListDynamic<Character> l1 = new ListDynamic<Character>();
@@ -84,7 +98,8 @@ public class Ejemplo
             return l1.getFirst().equals(l2.getFirst()) && compararListaCarac(l1.getTail(), l2.getTail());
         }
     }
-    
+        
+    //COMPROBAR SI ES SUBLISTA Nº3
     public void ListaEsSublista()
     {
         if(subLista(personas1,personas2) ) {
@@ -95,6 +110,7 @@ public class Ejemplo
         }
     }
     
+    //Métodos para comprobar si una lista dada es una sublista de otra
     public void SubListaN()
     {
         ListDynamic<Integer> l1 = new ListDynamic<>();
@@ -102,11 +118,11 @@ public class Ejemplo
         
         l1.insert(new Integer(0));
         l1.insert(new Integer(1));
-        //l1.insert(new Integer(0));
+        l1.insert(new Integer(0));
         l1.insert(new Integer(2));
         l1.insert(new Integer(3));
-        //l1.insert(new Integer(2));
-        //l1.insert(new Integer(3));
+        l1.insert(new Integer(2));
+        l1.insert(new Integer(3));
         
         l2.insert(new Integer(0));
         l2.insert(new Integer(2));
@@ -128,27 +144,112 @@ public class Ejemplo
         }
     }
     
-    
- 
+   
     private boolean subLista2(ListIF l1, ListIF l2)
     {
        ListDynamic lista = new ListDynamic<> (l2);
        boolean match = false;
        while(l1.getLength() > l2.getLength())  {
+           
+           if(l2.isEmpty())  {
+               return true;
+            }
+           
            if(l1.getFirst().equals(l2.getFirst()))  {
                l1 = l1.getTail();
                l2 = l2.getTail();
             }
            else  {
-               l1 = l1.getTail();
-               l2 = lista;
-               match = false;
-            }
-            
-           if(l2.isEmpty())  {
-               return true;
+               l2 = new ListDynamic<>(lista);
+               if(!l1.getFirst().equals(lista.getFirst()))  {
+                   l1 = l1.getTail();
+                }
             }
         }
        return match;
     }
+    
+    
+    //ULTIMO ELEMENTO Nº4
+    //Método que devuele el útimo elemento de una lista, en este caso de tipo persona.
+    public Persona ultimaPersona(ListIF<Persona> lista)  {
+        if(lista.getTail().isEmpty()) {
+            return lista.getFirst();
+        }
+        else  {
+            return ultimaPersona(lista.getTail());
+        }
+    }
+    
+    //INSERTAR ELEMENTO AL FINAL DE LA LISTA Nº5
+    public void insertarPersonaUltima(ListIF lista, Persona p)
+    {
+        if(lista.isEmpty())  {
+            lista.insert(p);
+        }
+        else{
+            insertarPersonaUltima(lista.getTail(),p);
+        }
+    }
+    
+    
+    //CONCATENAR DOS LISTAS Nº6
+    public ListDynamic ConcatenarListas (ListIF l1, ListIF l2)
+    {
+        if(l2.isEmpty())  {
+            return new ListDynamic<Persona>(l1);
+        }
+        else{
+            l1.insert(l2.getFirst());
+            return ConcatenarListas(l1,l2.getTail());
+        }
+            
+        
+    }
+    
+    
+    
+    //LISTA INVERSA Nº7   ---- ERROR
+    public ListIF invertirLista (ListIF l1, ListIF l2)
+    {
+        if(l1.getTail().isEmpty())  {
+            return l2.insert(l1.getFirst());
+        }
+        else
+        {
+            return l2.insert(invertirLista(l1.getTail(),l2));
+        }
+    }
+            
+    
+    //ULTIMO ELEMENTO DE UNA LISTA --REPETIDO DEL 4
+    public Persona UltimoElemento(ListIF l1)
+    {
+        if(l1.getTail().isEmpty())  {
+            return (Persona) l1.getFirst();
+        }
+        else
+        {
+            return UltimoElemento(l1.getTail());
+        }
+    }
+    
+    //BORRAR UN ELEMENTO DADO (PERSONA EN ESTE CASO) DEVUELVE UNA LISTA
+    public ListDynamic<Persona> BorrarElemento (Persona p, ListDynamic l)
+    {
+        if(l.getTail().getFirst().equals(p))  {
+            //l.getTail() = l.getTail().getTail();
+            return l;
+        }
+        else {
+            return null; //BorrarElemento(l.getTail(),p);
+        }
+    }
+            
+    
+    
+    
+    
+    
+    
 }

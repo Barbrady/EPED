@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=handler\ type
+comment0.target=BTreeIterator(BTreeIF,\ int)
+comment1.params=
+comment1.target=java.lang.Object\ getNext()
+comment2.params=
+comment2.target=boolean\ hasNext()
+comment3.params=
+comment3.target=void\ reset()
+comment4.params=tree
+comment4.target=Biblioteca.Colas.QueueIF\ preorder(BTreeIF)
+comment5.params=tree
+comment5.target=Biblioteca.Colas.QueueIF\ inorder(BTreeIF)
+comment6.params=tree
+comment6.target=Biblioteca.Colas.QueueIF\ postorder(BTreeIF)
+comment7.params=q\ p
+comment7.target=void\ addAll(Biblioteca.Colas.QueueIF,\ Biblioteca.Colas.QueueIF)
+comment8.params=tree
+comment8.target=Biblioteca.Colas.QueueIF\ lrBreadth(BTreeIF)
+comment9.params=tree
+comment9.target=Biblioteca.Colas.QueueIF\ rlBreadth(BTreeIF)
+numComments=10

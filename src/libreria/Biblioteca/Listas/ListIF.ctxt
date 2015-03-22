@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=java.lang.Object\ getFirst()
+comment1.params=
+comment1.target=ListIF\ getTail()
+comment2.params=element
+comment2.target=ListIF\ insert(java.lang.Object)
+comment3.params=
+comment3.target=boolean\ isEmpty()
+comment4.params=
+comment4.target=boolean\ isFull()
+comment5.params=
+comment5.target=int\ getLength()
+comment6.params=
+comment6.target=Biblioteca.Iterator.IteratorIF\ getIterator()
+comment7.params=element
+comment7.target=boolean\ contains(java.lang.Object)
+comment8.params=comparator
+comment8.target=ListIF\ sort(ComparatorIF)
+numComments=9
