@@ -6,4 +6,6 @@ comment1.params=pila
 comment1.target=int\ CalcularNumero(Biblioteca.Pilas.StackDynamic)
 comment2.params=pila
 comment2.target=Biblioteca.Listas.ListDynamic\ PasarPilaaLista(Biblioteca.Pilas.StackDynamic)
-numComments=3
+comment3.params=pila1
+comment3.target=Biblioteca.Pilas.StackIF\ InversorPila(Biblioteca.Pilas.StackIF)
+numComments=4

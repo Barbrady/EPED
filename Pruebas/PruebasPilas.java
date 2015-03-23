@@ -12,7 +12,7 @@ public class PruebasPilas
 {
     // instance variables - replace the example below with your own
     private Persona Aitor, Noelia, Maya, Mikel, Adrian, Miguel;
-    private StackDynamic<Persona> pila1;
+    private StackDynamic<Persona> pila1,pila2, pila3;
     private ListDynamic<Persona> lista1, lista2;
     /**
      * Constructor for objects of class PruebasPilas
@@ -26,7 +26,10 @@ public class PruebasPilas
         Mikel = new Persona("Mikel",0);
         Adrian = new Persona("Adrian",27);
         Miguel = new Persona("Miguel",27);
-        pila1 = new StackDynamic<> ();
+        pila1 = new StackDynamic<Persona> ();
+        pila2 = new StackDynamic<Persona> ();
+        pila3 = new StackDynamic<Persona> ();
+        
         lista1 = new ListDynamic<> ();
         
         pila1.push(Aitor);
@@ -34,9 +37,11 @@ public class PruebasPilas
         pila1.push(Maya);
         pila1.push(Mikel);
         
+        pila3 = (StackDynamic) InversorPila(pila1);
         //int i = CalcularNumero(pila1);
         //System.out.println("El número de elementos es: "+i);
-        lista1 = PasarPilaaLista(pila1);
+        //lista1 = PasarPilaaLista(pila1);
+        
         
     }
 
@@ -63,5 +68,18 @@ public class PruebasPilas
         }
         return (ListDynamic) l;
     }
+    
+    public StackIF InversorPila (StackIF pila1) 
+    {
+        if(pila1.isEmpty())  {
+            return pila2;
+        }
+        else
+        {
+            pila2.push((Persona)pila1.getTop());
+            pila1.pop();
+            return InversorPila(pila1);
+        }
     }
+}
 
