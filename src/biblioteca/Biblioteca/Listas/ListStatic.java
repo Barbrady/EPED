@@ -1,11 +1,12 @@
 package Biblioteca.Listas;
 import Biblioteca.Iterator.*;
+import Biblioteca.Comparator.*;
 
 /**
  * Write a description of class ListStatic here.
  * 
  * @author (your name) 
- * @version (a version number or a date)
+ * @version (a version number or a date) 
  */
 public class ListStatic<T> implements ListIF<T>
 {

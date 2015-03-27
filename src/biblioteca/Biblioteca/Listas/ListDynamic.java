@@ -1,5 +1,6 @@
 package Biblioteca.Listas;
 import Biblioteca.Iterator.*;
+import Biblioteca.Comparator.*;
 
 /**
  * Write a description of class ListDynamic here.

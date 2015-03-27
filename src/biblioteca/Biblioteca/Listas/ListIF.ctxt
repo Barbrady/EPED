@@ -16,5 +16,5 @@ comment6.target=Biblioteca.Iterator.IteratorIF\ getIterator()
 comment7.params=element
 comment7.target=boolean\ contains(java.lang.Object)
 comment8.params=comparator
-comment8.target=ListIF\ sort(ComparatorIF)
+comment8.target=ListIF\ sort(Biblioteca.Comparator.ComparatorIF)
 numComments=9
