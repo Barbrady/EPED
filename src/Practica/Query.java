@@ -16,9 +16,7 @@ public class Query
      */
     public Query()
     {
-        // inicializamos la frecuencia a 1
-        frequency = 1;
-        text = new String();
+
     }
 
     /**
@@ -28,7 +26,6 @@ public class Query
      */
     public Query (String text)
     {
-        //this();
         this.text = text;
         frequency = 1;
     }

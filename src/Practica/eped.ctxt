@@ -8,6 +8,6 @@ comment2.params=
 comment2.target=int\ numeroConsulas()
 comment3.params=
 comment3.target=void\ imprimirConsultas()
-comment4.params=lista
+comment4.params=deposito
 comment4.target=void\ readFile(QueryDepotList)
 numComments=5

@@ -8,7 +8,7 @@ import java.io.*;
  */
 public class eped
 {
-    private QueryDepotList lista;
+    private QueryDepotList deposito;
     private Query consulta;
     private static final String file = "texto.txt"; 
     public static void main (String [ ] args) {
@@ -21,13 +21,13 @@ public class eped
     public eped()
     {
         // initialise instance variables
-        lista = new QueryDepotList();
-        readFile(lista);
+        deposito = new QueryDepotList();
+        readFile(deposito);
     }
     
     public int numeroConsulas()
     {
-        return lista.numQueries();
+        return deposito.numQueries();
     }
     
     public void imprimirConsultas()
@@ -35,13 +35,13 @@ public class eped
         
     }
     
-    private void readFile(QueryDepotList lista)
+    private void readFile(QueryDepotList deposito)
     {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String response = reader.readLine();
             while(response != null)  {
-                lista.incFreqQuery(response);
+                deposito.incFreqQuery(response);
                 response = reader.readLine();
             }
             reader.close();
@@ -53,9 +53,9 @@ public class eped
             System.err.println("Hubo un error al leer " + file);
         }
         
-        if(lista.numQueries() == 0)  {
+        if(deposito.numQueries() == 0)  {
             //consulta = new Query("sinConsultas");
-            lista.incFreqQuery("sinConsultas");
+            deposito.incFreqQuery("sinConsultas");
         }
     }  
 }
