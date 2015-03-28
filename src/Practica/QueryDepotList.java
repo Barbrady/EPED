@@ -134,7 +134,7 @@ public class QueryDepotList implements QueryDepot
      * @param String de la consulta
      * @return Query buscado
      */
-    public Query searchQuery (String q)
+    private Query searchQuery (String q)
     {
         if(consultas != null) {
             IteratorIF<Query> itr = consultas.getIterator();
