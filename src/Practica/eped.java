@@ -10,19 +10,21 @@ public class eped
 {
     private QueryDepotList deposito;
     private Query consulta;
-    private static final String file = "texto.txt"; 
+    //private static final String file = "texto.txt";
+    private static String file;
     public static void main (String [ ] args) {
-        
+        file = args[0];
+        new eped(file);
     }
     
     /**
      * Constructor for objects of class eped2015
      */
-    public eped()
+    public eped(String file)
     {
         // initialise instance variables
         deposito = new QueryDepotList();
-        readFile(deposito);
+        readFile(deposito,file);
     }
     
     public int numeroConsulas()
@@ -35,7 +37,7 @@ public class eped
         
     }
     
-    private void readFile(QueryDepotList deposito)
+    private void readFile(QueryDepotList deposito, String file)
     {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));

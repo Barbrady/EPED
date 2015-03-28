@@ -114,9 +114,7 @@ public class QueryDepotList implements QueryDepot
             consultas = remove(consultas,query);
         }
         else  {
-            int i= query.getFreq();
-            i--;
-            query.setFreq(i);
+            query.setFreq(query.getFreq()-1);
         }
     }
     
@@ -147,9 +145,7 @@ public class QueryDepotList implements QueryDepot
      */
     private void incrementFreq(Query q)
     {
-        int f = q.getFreq();
-        f++;
-        q.setFreq(f);
+        q.setFreq(q.getFreq()+1);
     }
     
     /**
