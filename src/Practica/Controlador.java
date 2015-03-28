@@ -91,9 +91,12 @@ public class Controlador
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String response = reader.readLine();
+            int frecuencia = 0;
             while(response != null)  {
                 if(response.startsWith("F "))  {
-                    deposito.incFreqQuery(response.substring(1));
+                    String consulta = response.substring(1);
+                    frecuencia = deposito.getFreqQuery(consulta);
+                    System.out.println("La frecuencia de "+ consulta + " es "+ frecuencia);
                 }
                 if(response.startsWith("S "))  {
                     consultas = deposito.listOfQueries(response.substring(1));
