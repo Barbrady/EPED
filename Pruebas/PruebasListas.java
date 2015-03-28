@@ -34,7 +34,7 @@ public class PruebasListas
         Adrian = new Persona("Adrian",27);
         Miguel = new Persona("Miguel",27);
         
-        //personas2 = new ListDynamic<Persona> (personas1);
+        personas3 = new ListDynamic<Persona> ();
         
         //personas2.insert(Adrian);
         //personas2.insert(Miguel);
@@ -43,7 +43,8 @@ public class PruebasListas
         //personas3 = ConcatenarListas(personas1, personas2);
         //personas3 = new ListDynamic<Persona>();
         //personas1 = (ListDynamic) invertirLista(personas1,personas3);
-        p = UltimoElemento(personas1);
+        //p = UltimoElemento(personas1);
+        personas2 = (ListDynamic) invertirLista(personas1, personas3);
     
         
     }
@@ -217,7 +218,7 @@ public class PruebasListas
         }
         else
         {
-            return l2.insert(invertirLista(l1.getTail(),l2));
+            return l1.insert(invertirLista(l1.getTail(),l2).getFirst());
         }
     }
             

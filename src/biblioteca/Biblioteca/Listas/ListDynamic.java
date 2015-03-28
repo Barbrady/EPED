@@ -201,7 +201,7 @@ public class ListDynamic<T> implements ListIF<T>
     {
         if (isEmpty()) return insert(element);
         else {
-            return ((ListDynamic) getTail()).append(element);
+            return  ((ListDynamic) getTail()).append(element);
         }
        
     }

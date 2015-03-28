@@ -7,11 +7,13 @@
 
 public class eped
 {
-    private static String file, prefix;
+    private static String tipo, file, prefix;
+    
     public static void main (String [ ] args) {
-        file = args[0];
-        prefix = args[1];
-        new Controlador(file,prefix);
+        tipo = args[0];
+        file = args[1];
+        prefix = args[2];
+        new Controlador(tipo,file,prefix);
     }
     
     /**
