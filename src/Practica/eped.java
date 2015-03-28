@@ -1,5 +1,6 @@
 import java.io.*;
-
+import Biblioteca.Listas.*;
+import Biblioteca.Iterator.*;
 /**
  * Write a description of class eped2015 here.
  * 
@@ -9,22 +10,32 @@ import java.io.*;
 public class eped
 {
     private QueryDepotList deposito;
+    private ListIF<Query> consultas;
     private Query consulta;
     //private static final String file = "texto.txt";
-    private static String file;
+    private static String file, prefix;
+    private IteratorIF<Query> itr;
     public static void main (String [ ] args) {
         file = args[0];
-        new eped(file);
+        prefix = args[1];
+        new eped(file,prefix);
     }
     
     /**
      * Constructor for objects of class eped2015
      */
-    public eped(String file)
+    public eped(String file, String prefix)
     {
         // initialise instance variables
+        //System.out.println("Bien");
         deposito = new QueryDepotList();
         readFile(deposito,file);
+        consultas = deposito.listOfQueries(prefix);
+        itr = consultas.getIterator();
+        while(itr.hasNext())  {
+            Query q = itr.getNext();
+            System.out.println("" +q.getText() +" se repite: "+ q.getFreq() +" veces.");
+        }
     }
     
     public int numeroConsulas()
@@ -59,5 +70,6 @@ public class eped
             //consulta = new Query("sinConsultas");
             deposito.incFreqQuery("sinConsultas");
         }
+        
     }  
 }

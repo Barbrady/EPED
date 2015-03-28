@@ -18,8 +18,8 @@ public class ComparatorFreq extends ComparatorBase<Query>
         int value = 0;
         if(q1 != null && q2 != null)
         {
-            if(q1.getFreq() < q2.getFreq()) value = LESS;
-            if(q1.getFreq() > q2.getFreq()) value = GREATER;
+            if(q1.getFreq() > q2.getFreq()) value = LESS;
+            if(q1.getFreq() < q2.getFreq()) value = GREATER;
             if(q1.getFreq() == q2.getFreq()) value = EQUAL;
         }
         return value;

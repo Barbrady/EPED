@@ -11,7 +11,7 @@ public class QueryDepotList implements QueryDepot
 {
     // Variables de instancia
     private ListIF<Query> consultas;
-    private ComparatorIF comparadorTexto;
+    private ComparatorIF comparadorTexto, comparadorFreq;
     /**
      * Constructor vacío
      */
@@ -20,6 +20,7 @@ public class QueryDepotList implements QueryDepot
         // initialise instance variables
         consultas = new ListDynamic<Query> ();
         comparadorTexto = new ComparatorText();
+        comparadorFreq = new ComparatorFreq();
     }
     
     /**
@@ -60,7 +61,7 @@ public class QueryDepotList implements QueryDepot
     }
        
     
-    //VACÍO
+    //COMPLETO - SIN COMPROBAR
     @Override
     /**
      * Devuelve una lista ordenada de mayor a menor, de todas la consultas almacenadas en
@@ -71,7 +72,16 @@ public class QueryDepotList implements QueryDepot
      */
     public ListIF<Query> listOfQueries (String prefix)
     {
-        return null;
+        ListIF<Query> listOfQ = new ListDynamic<>();
+        IteratorIF<Query> itr = consultas.getIterator();
+        while(itr.hasNext())  {
+            Query q = itr.getNext();
+            if(beginText(q,prefix))  {
+                listOfQ.insert(q);
+            }
+        }
+        listOfQ = listOfQ.sort(comparadorFreq);
+        return listOfQ;
     }
     
     
@@ -87,7 +97,6 @@ public class QueryDepotList implements QueryDepot
         //boolean match = false;
         Query query = searchQuery(q);
         if(query!= null && query.getText().equals(q))  {
-            //match = true;
             incrementFreq(query);                   //Incremento de frecuencia mediante método privado
         }
         //Inserta una nueva consulta si no la ha encontrado en la lista
@@ -163,8 +172,21 @@ public class QueryDepotList implements QueryDepot
             return remove(l.getTail(),q).insert(l.getFirst());
         }
     }
-   
-
+    
+    /**
+     * Método que devuelve true si una query contiene al inicio un texto determinado
+     * @param la query a comprobar
+     * @return true/false
+     */
+    private boolean beginText (Query q, String s)
+    {
+        if(q.getText().startsWith(s)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     //Métodos para pruebas y test unitarios
 
 }
