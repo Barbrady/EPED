@@ -20,11 +20,10 @@ public class Controlador
      */
     public Controlador()
     {
-        // initialise instance variables
-        //x = 0;
+
     }
     
-    public Controlador(String tipo, String file1, String file2)
+    public Controlador(String tipo, String consultas, String sugerencias)
     {
         if(tipo.equals("L"))  {
             deposito = new QueryDepotList();
@@ -32,18 +31,20 @@ public class Controlador
         
         if(tipo.equals("T"))  {
             //QueryDepotTree deposito  = new QueryDepotTree();
+            System.out.println("El depósito de consultas con árbol aun no está implementado.");
+            return;
         }
         
             
         
         //iniciarPrograma(deposito,file1,file2);
-        iniciarPrograma(file1,file2);
+        iniciarPrograma(consultas,sugerencias);
     }
     
-    public void iniciarPrograma(String file1, String file2)
+    public void iniciarPrograma(String consultas, String sugerencias)
     {
-        readQueries(file1);
-        exeOperations(file2);
+        readQueries(consultas);
+        exeOperations(sugerencias);
     }
     
     private void readQueries(String file)
