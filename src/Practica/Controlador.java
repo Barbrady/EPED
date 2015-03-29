@@ -14,7 +14,7 @@ public class Controlador
     private ListIF<Query> consultas;
     private Query consulta;
     private QueryDepot deposito;
-    private int rep = 10;
+    private int rep = 100;
     /**
      * Constructor for objects of class Controlador
      */
@@ -42,23 +42,8 @@ public class Controlador
     
     public void iniciarPrograma(String file1, String file2)
     {
-        //long tInicial = System.currentTimeMillis();
-        //Lee el archivo pasado por parámetro y crea un depósito de consultas
-        //Consulta con medición de tiempo
-        //long tFinal = System.currentTimeMillis();
-        //double duracion = ( (double)tFinal - (double)tInicial)/(double)10;
         readQueries(file1);
-        readOperations(file2);
-        //System.out.println("Ha tardado " + duracion + " milisegundos.");
-    }
-    
-    public void imprimirSugerencias()
-    {
-        IteratorIF<Query> itr = consultas.getIterator();
-        while(itr.hasNext())  {
-            Query q = itr.getNext();
-            System.out.println("    " +q.getText() +" con frecuencia "+ q.getFreq() +".");
-        }
+        exeOperations(file2);
     }
     
     private void readQueries(String file)
@@ -85,8 +70,13 @@ public class Controlador
         
     }
     
-    private void readOperations(String file)
+    private void exeOperations(String file)
     {
+        System.out.println("Consultas almacenadas: "+ deposito.numQueries());
+        long tInicial,tFinal;
+        double duracion;
+        int frecuencia = 0;
+        
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String response = reader.readLine();
@@ -94,17 +84,24 @@ public class Controlador
                 
                 if(response.startsWith("F "))  {
                     String consulta = response.substring(2);
-                    System.out.println("La frecuencia de \""+ consulta + "\" es "+ deposito.getFreqQuery(consulta));
+                    tInicial = System.currentTimeMillis();
+                    for(int i=0; i < rep; i++)  {
+                        frecuencia = deposito.getFreqQuery(consulta);
+                    }
+                    tFinal = System.currentTimeMillis();
+                    duracion = ( (double)tFinal - (double)tInicial)/(double)10;
+                    System.out.println("La frecuencia de \""+ consulta + "\" es "+ frecuencia +".");
+                    System.out.println("-Tiempo:"+duracion);
                 }
                 
                 if(response.startsWith("S "))  {
                     String sugerencia = response.substring(2);
-                    long tInicial = System.currentTimeMillis();
+                    tInicial = System.currentTimeMillis();
                     for(int i=0; i < rep; i++)  {
                         consultas = deposito.listOfQueries(sugerencia);
                     }
-                    long tFinal = System.currentTimeMillis();
-                    double duracion = ( (double)tFinal - (double)tInicial)/(double)10;
+                    tFinal = System.currentTimeMillis();
+                    duracion = ( (double)tFinal - (double)tInicial)/(double)10;
                     System.out.println("La lista de sugerencias para \"" + sugerencia +"\" es:");
                     imprimirSugerencias();
                     System.out.println("-Tiempo:"+duracion);
@@ -118,6 +115,15 @@ public class Controlador
         }
         catch(IOException e)  {
             System.err.println("Hubo un error al leer " + file);
+        }
+    }
+    
+    public void imprimirSugerencias()
+    {
+        IteratorIF<Query> itr = consultas.getIterator();
+        while(itr.hasNext())  {
+            Query q = itr.getNext();
+            System.out.println("    \"" +q.getText() +"\" con frecuencia "+ q.getFreq() +".");
         }
     }
 }
