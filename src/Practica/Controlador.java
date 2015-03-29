@@ -14,6 +14,7 @@ public class Controlador
     private ListIF<Query> consultas;
     private Query consulta;
     private QueryDepot deposito;
+    private int rep = 10;
     /**
      * Constructor for objects of class Controlador
      */
@@ -35,34 +36,32 @@ public class Controlador
         
             
         
-        iniciarPrograma(deposito,file1,file2);
+        //iniciarPrograma(deposito,file1,file2);
+        iniciarPrograma(file1,file2);
     }
     
-    public void iniciarPrograma(QueryDepot deposito, String file1, String file2)
+    public void iniciarPrograma(String file1, String file2)
     {
-        long tInicial = System.currentTimeMillis();
+        //long tInicial = System.currentTimeMillis();
         //Lee el archivo pasado por parámetro y crea un depósito de consultas
-        readQueries(deposito,file1);
         //Consulta con medición de tiempo
-        long tFinal = System.currentTimeMillis();
-        double duracion = ( (double)tFinal - (double)tInicial)/(double)10;
-        
+        //long tFinal = System.currentTimeMillis();
+        //double duracion = ( (double)tFinal - (double)tInicial)/(double)10;
+        readQueries(file1);
         readOperations(file2);
-        
-        
-        System.out.println("Ha tardado " + duracion + " milisegundos.");
+        //System.out.println("Ha tardado " + duracion + " milisegundos.");
     }
     
-    public void imprimirConsultas()
+    public void imprimirSugerencias()
     {
         IteratorIF<Query> itr = consultas.getIterator();
         while(itr.hasNext())  {
             Query q = itr.getNext();
-            System.out.println("" +q.getText() +" se repite: "+ q.getFreq() +" veces.");
+            System.out.println("    " +q.getText() +" con frecuencia "+ q.getFreq() +".");
         }
     }
     
-    private void readQueries(QueryDepot deposito, String file)
+    private void readQueries(String file)
     {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -91,15 +90,24 @@ public class Controlador
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String response = reader.readLine();
-            //int frecuencia = 0;
             while(response != null)  {
+                
                 if(response.startsWith("F "))  {
                     String consulta = response.substring(2);
-                    System.out.println("La frecuencia de "+ consulta + " es "+ deposito.getFreqQuery(consulta));
+                    System.out.println("La frecuencia de \""+ consulta + "\" es "+ deposito.getFreqQuery(consulta));
                 }
+                
                 if(response.startsWith("S "))  {
-                    consultas = deposito.listOfQueries(response.substring(2));
-                    imprimirConsultas();
+                    String sugerencia = response.substring(2);
+                    long tInicial = System.currentTimeMillis();
+                    for(int i=0; i < rep; i++)  {
+                        consultas = deposito.listOfQueries(sugerencia);
+                    }
+                    long tFinal = System.currentTimeMillis();
+                    double duracion = ( (double)tFinal - (double)tInicial)/(double)10;
+                    System.out.println("La lista de sugerencias para \"" + sugerencia +"\" es:");
+                    imprimirSugerencias();
+                    System.out.println("-Tiempo:"+duracion);
                 }
                 response = reader.readLine();
             }
