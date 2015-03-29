@@ -49,7 +49,7 @@ public class Controlador
         
         readOperations(file2);
         
-        imprimirConsultas();
+        
         System.out.println("Ha tardado " + duracion + " milisegundos.");
     }
     
@@ -91,15 +91,15 @@ public class Controlador
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String response = reader.readLine();
-            int frecuencia = 0;
+            //int frecuencia = 0;
             while(response != null)  {
                 if(response.startsWith("F "))  {
-                    String consulta = response.substring(1);
-                    frecuencia = deposito.getFreqQuery(consulta);
-                    System.out.println("La frecuencia de "+ consulta + " es "+ frecuencia);
+                    String consulta = response.substring(2);
+                    System.out.println("La frecuencia de "+ consulta + " es "+ deposito.getFreqQuery(consulta));
                 }
                 if(response.startsWith("S "))  {
-                    consultas = deposito.listOfQueries(response.substring(1));
+                    consultas = deposito.listOfQueries(response.substring(2));
+                    imprimirConsultas();
                 }
                 response = reader.readLine();
             }
