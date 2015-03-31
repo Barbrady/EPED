@@ -23,28 +23,30 @@ public class Controlador
 
     }
     
-    public Controlador(String tipo, String consultas, String sugerencias)
+    public Controlador(String tipo, String consultas, String operaciones)
     {
         if(tipo.equals("L"))  {
             deposito = new QueryDepotList();
         }
         
-        if(tipo.equals("T"))  {
+        else if(tipo.equals("T"))  {
             //QueryDepotTree deposito  = new QueryDepotTree();
             System.out.println("El depósito de consultas con árbol aun no está implementado.");
             return;
+        }  
+        
+        else {
+            System.out.println("El tipo de depóstio indicado no es válido.");
+            return;
         }
-        
-            
-        
         //iniciarPrograma(deposito,file1,file2);
-        iniciarPrograma(consultas,sugerencias);
+        iniciarPrograma(consultas,operaciones);
     }
     
-    public void iniciarPrograma(String consultas, String sugerencias)
+    public void iniciarPrograma(String consultas, String operaciones)
     {
         readQueries(consultas);
-        exeOperations(sugerencias);
+        exeOperations(operaciones);
     }
     
     private void readQueries(String file)

@@ -1,19 +1,19 @@
 /**
- * Write a description of class eped2015 here.
+ * Archivo "main"  eped2015.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Aitor Alkorta) 
+ * @version (1.0)
  */
 
 public class eped
 {
-    private static String tipo, file, prefix;
+    private static String tipo, consultas, operaciones;
     
     public static void main (String [ ] args) {
         tipo = args[0];
-        file = args[1];
-        prefix = args[2];
-        new Controlador(tipo,file,prefix);
+        consultas = args[1];
+        operaciones = args[2];
+        new Controlador(tipo,consultas,operaciones);
     }
     
     /**
