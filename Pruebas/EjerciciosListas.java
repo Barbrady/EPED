@@ -8,9 +8,10 @@ import Biblioteca.Listas.*;
 public class EjerciciosListas
 {
     // instance variables - replace the example below with your own
-    ListIF<Object> lista;
+    ListIF<Character> lista;
     ListIF<Integer> lista2;
     ListIF<Object> lista3;
+    Character a;
     /**
      * Constructor for objects of class EjerciciosListas
      */
@@ -67,7 +68,8 @@ public class EjerciciosListas
         Object o2 = ultimoElemento(lista);
         System.out.println("El ultimo elemento es: "+o2);
         **/
-        lista3 = invierteLista(lista);
+        
+        a = lista.getFirst();
     }
 
     /**
