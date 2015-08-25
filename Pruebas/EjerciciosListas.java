@@ -9,8 +9,8 @@ public class EjerciciosListas
 {
     // instance variables - replace the example below with your own
     ListIF<Character> lista;
-    ListIF<Integer> lista2;
-    ListIF<Object> lista3;
+    ListIF<Integer> lista2, lista3;
+    
     Character a;
     /**
      * Constructor for objects of class EjerciciosListas
@@ -39,13 +39,6 @@ public class EjerciciosListas
         lista2.insert(new Integer(1));
         lista2.insert(new Integer(2));
         lista2.insert(new Integer(3));
-        lista2.insert(new Integer(1));
-        lista2.insert(new Integer(2));
-        lista2.insert(new Integer(3));
-        lista2.insert(new Integer(5));
-        lista2.insert(new Integer(9));
-        lista2.insert(new Integer(7));
-        lista2.insert(new Integer(8));
         
         /**
         System.out.println("La lista tiene "+longitudLista(lista)+" elementos.");
@@ -69,7 +62,7 @@ public class EjerciciosListas
         System.out.println("El ultimo elemento es: "+o2);
         **/
         
-        a = lista.getFirst();
+        lista3 = getReverse(lista2);
     }
 
     /**
@@ -277,6 +270,25 @@ public class EjerciciosListas
         }
         else  {
             return mayores(l.getTail(),aux,i);
+        }
+    }
+    
+    
+    
+    
+    public ListIF<Integer> getReverse(ListIF<Integer> lista)
+    {
+        return reverse(lista, new ListDynamic<Integer> ());
+    }
+    
+    private ListIF<Integer> reverse (ListIF<Integer> lista1, ListIF<Integer> lista2)
+    {
+        if(lista1.isEmpty()) return lista2;
+        
+        else{
+            lista2.insert(lista1.getFirst());
+            lista1 = lista1.getTail();
+            return reverse(lista1,lista2);
         }
     }
     
