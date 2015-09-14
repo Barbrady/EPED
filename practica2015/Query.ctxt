@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Query()
+comment0.text=\n\ Constructor\ vac\u00EDo\ de\ la\ query.\n
+comment1.params=text
+comment1.target=Query(java.lang.String)
+comment1.text=\n\ Constructor\ de\ una\ nueva\ query\ con\ el\ texto\ pasado\ como\ par\u00E1metro.\n\ \n\ @param\ Cadena\ de\ caracteres\ (String)\n
+comment2.params=freq
+comment2.target=void\ setFreq(int)
+comment2.text=\n\ Modifica\ la\ frecuencia\ de\ la\ query.\n
+comment3.params=
+comment3.target=java.lang.String\ getText()
+comment3.text=\n\ Devuelve\ el\ texto\ de\ una\ query.\n\ @return\ String\ con\ el\ texto.\n
+comment4.params=
+comment4.target=int\ getFreq()
+comment4.text=\n\ Devuelve\ la\ frecuencia\ de\ una\ query.\n\ @return\ frecuencia.\n
+numComments=5

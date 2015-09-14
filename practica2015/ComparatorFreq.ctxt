@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=q1\ q2
+comment0.target=int\ compare(Query,\ Query)
+comment0.text=\n\ Metodo\ compare,\ recibe\ dos\ query\ y\ devuelve\ un\ entero\ en\ funci\u00F3n\ de\ la\ comparaci\u00F3n\n\ @param\ las\ dos\ Query\ a\ comparar\n\ @return\ entero\ en\ funci\u00F3n\ de\ la\ comparaci\u00F3n\n
+numComments=1
